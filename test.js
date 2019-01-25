@@ -11,9 +11,18 @@ addToOnlineMap(9);
 addToOnlineMap(1, 1);
 addToOnlineMap(14, 2);
 window.getPlatformAPIUrl = (gid) => {
-    const version = onlineMap[gid];
-    if (!version) {
-        return url + "/PlatformAPI_browserify.min.js";
+    const uu = () => {
+        const version = onlineMap[gid];
+        if (!version) {
+            return url + "/PlatformAPI_browserify.min.js";
+        }
+        return url + "/PlatformAPI_browserify" + version + ".min.js";
     }
-    return url + "/PlatformAPI_browserify" + version + ".min.js";
+    var loadNode = document.createElement('script');
+    loadNode.async = false;
+    loadNode.src = uu();
+    document.head.appendChild(loadNode);
+    loadNode.onload=()=>{
+      PlatformAPI.init(gid);
+    }
 }
