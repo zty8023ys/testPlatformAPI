@@ -1,5 +1,14 @@
 <body>
 	<script>
-        console.log(location.search);
+        const searchStr = location.search;
+
+        const searchStr = searchStr.substr(1);
+        
+        //将searchStr字符串分割成数组，数组中的每一个元素为一个参数和参数值
+        const searchs = searchStr.split("&");
+        
+        //获得第一个参数和值
+        const gameId = searchs[0].split("=");
+
     </script>
 </body>
