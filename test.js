@@ -1,11 +1,11 @@
 const url = "https://serene-keller-2d034d.netlify.com"
 const onlineMap = {}
-const addToOnlineMap = (gid, version = "") => {
+const addToOnlineMap = (gid, version) => {
     if (typeof (onlineMap[gid]) !== undefined) {
         console.error("gid:", gid, "重复配置!");
         debugger;
     }
-    onlineMap[gid] = version;
+    onlineMap[gid] = version || "";
 }
 addToOnlineMap(9);
 addToOnlineMap(1, 1);
