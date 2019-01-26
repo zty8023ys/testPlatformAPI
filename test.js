@@ -11,16 +11,21 @@ addToOnlineMap(9);
 addToOnlineMap(1, 1);
 addToOnlineMap(14, 2);
 window.getPlatformAPIUrl = (gid) => {
-    const uu = () => {
-        const version = onlineMap[gid];
-        if (!version) {
-            return url + "/PlatformAPI_browserify.min.js";
-        }
-        return url + "/PlatformAPI_browserify" + version + ".min.js";
-    }
+    var url = window.location.href;
+    console.log(url);
+    　　var url = self.location.href;
+    console.log(url);
+    
+    　　var url = document.URL;
+    console.log(url);
+    
+    　　var url = document.location;
+    console.log(url);
+    const version = onlineMap[gid];
+    const PlatformAPIUrl = url + (version ? "/PlatformAPI_browserify" + version + ".min.js" : "/PlatformAPI_browserify.min.js");
     var loadNode = document.createElement('script');
     loadNode.async = false;
-    loadNode.src = uu();
+    loadNode.src = PlatformAPIUrl;
     document.head.appendChild(loadNode);
     loadNode.onload=()=>{
       PlatformAPI.init(gid);
