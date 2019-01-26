@@ -10,7 +10,7 @@ const addToOnlineMap = (gid, version) => {
 addToOnlineMap(9);
 addToOnlineMap(1, 1);
 addToOnlineMap(14, 2);
-window.getPlatformAPIUrl = (gid) => {
+var initPlatformAPI = (gid) => {
     const version = onlineMap[gid];
     const PlatformAPIUrl = url + (version ? "/PlatformAPI_browserify" + version + ".min.js" : "/PlatformAPI_browserify.min.js");
     var loadNode = document.createElement('script');
