@@ -7,9 +7,7 @@ const addToOnlineMap = (gid, version) => {
     }
     onlineMap[gid] = version || "";
 }
-addToOnlineMap(9);
-addToOnlineMap(1, 1);
-addToOnlineMap(14, 2);
+addToOnlineMap(9, 1);
 var initPlatformAPI = (gid) => {
     const version = onlineMap[gid];
     const PlatformAPIUrl = url + (version ? "/PlatformAPI_browserify" + version + ".min.js" : "/PlatformAPI_browserify.min.js");
